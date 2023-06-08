@@ -1,11 +1,11 @@
-.ONESHELL: 
+.ONESHELL:
 
 # Signifies our desired python version
 PY = python3
 
 # .PHONY defines parts of the makefile that are not dependant on any specific file
 # This is most often used to store functions
-.PHONY = help clean setup
+.PHONY = help clean setup upgrade_sqlite
 
 
 # define the name of the virtual environment directory
@@ -18,6 +18,7 @@ ROOT_DIR := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
 PY3 := $(shell echo `which python3.9`)
 PY   = $(ROOT_DIR)/$(VENV)/bin/python3
+PY_VERSION := $(shell $(PY3) -c 'import sys; print("%d.%d.%d"% sys.version_info[0:3])')
 
 
 # Defines the default target that `make` will to try to make, or in the case of a phony target, execute the specified commands
@@ -30,6 +31,7 @@ PY   = $(ROOT_DIR)/$(VENV)/bin/python3
 help: 
 	@echo "install   - prepare the environment"
 	@echo "clean     - remove the virtual environment"
+	@echo "upgrade_sqlite - upgrade sqlite to SQLite 3.42.0"
 
 $(VENV_BIN)/activate: 
 	test -d $(VENV) || $(PY3) -m venv $(VENV)
@@ -53,3 +55,17 @@ install: @setup
 
 clean: 
 	rm -rf $(VENV)
+
+upgrade_sqlite:
+	wget https://www.sqlite.org/2023/sqlite-autoconf-3420000.tar.gz
+	tar zxvf sqlite-autoconf-3420000.tar.gz
+	rm -f sqlite-autoconf-3420000.tar.gz
+	cd sqlite-autoconf-3280000
+	./configure
+	make
+	sudo make install
+	rm -f sqlite-autoconf-3420000.tar.gz
+	cd /usr/src/Python-$(PY_VERSION)
+	LD_RUN_PATH=/usr/local/lib ./configure
+	LD_RUN_PATH=/usr/local/lib make
+	LD_RUN_PATH=/usr/local/lib sudo make altinstall	
