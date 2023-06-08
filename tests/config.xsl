@@ -46,7 +46,7 @@
     </xsl:template>
 
     <!-- ================================================================== -->
-    <!-- Extract tables information                                         -->
+    <!-- Extract tests information                                          -->
     <!-- ================================================================== -->
     <xsl:template match="/settings/Tests">
         <xsl:for-each select="child::*">
