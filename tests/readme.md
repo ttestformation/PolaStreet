@@ -22,3 +22,16 @@ TESTS_LIST+=( "unit_003" )
 # Test library
 
 Scripts must be stored in the folder specified in the LIBRARY_PATH variable. They must follow the \<unit_test_id\>.sh naming rule.
+
+# Usage
+
+Simply launch the _run_tests.sh_ shell script.
+
+Here's a sample output:
+
+```
+2023-06-08 23:31:56 - unit_000                                           [Failure]
+2023-06-08 23:31:56 - unit_001                                           [Success]
+2023-06-08 23:31:56 - unit_002                                           [Success]
+2023-06-08 23:31:56 - unit_003                                           [Missing]
+```
