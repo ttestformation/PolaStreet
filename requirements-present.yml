@@ -1,0 +1,14 @@
+---
+- name: install requirements for DjangoX
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: install sqlite-devel and openssl-dev
+      package:
+        name: 
+          # évite ModuleNotFoundError: No module named '_sqlite3'
+          - sqlite-devel
+          # évite WARNING: pip is configured with locations that require TLS/SSL, however the ssl module in Python is not available
+          - openssl
+          - openssl-devel
+      become: true
