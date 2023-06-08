@@ -5,7 +5,7 @@ PY = python3
 
 # .PHONY defines parts of the makefile that are not dependant on any specific file
 # This is most often used to store functions
-.PHONY = help clean setup upgrade_sqlite
+.PHONY = help clean setup upgrade_sqlite run
 
 
 # define the name of the virtual environment directory
@@ -16,8 +16,8 @@ VENV_BIN = $(VENV)/bin
 # define Makefile's current directory
 ROOT_DIR := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
-PY3 := $(shell echo `which python3.9`)
-PY   = $(ROOT_DIR)/$(VENV)/bin/python3
+PY3        := $(shell echo `which python3.9`)
+PY         := $(ROOT_DIR)/$(VENV)/bin/python3
 PY_VERSION := $(shell $(PY3) -c 'import sys; print("%d.%d.%d"% sys.version_info[0:3])')
 
 
@@ -28,13 +28,13 @@ PY_VERSION := $(shell $(PY3) -c 'import sys; print("%d.%d.%d"% sys.version_info[
 .SILENT: setup clean $(VENV) $(VENV_BIN)/activate
 
 # The @ makes sure that the command itself isn't echoed in the terminal
-help: 
+help:
 	@echo "install   - prepare the environment"
 	@echo "clean     - remove the virtual environment"
 	@echo "upgrade_sqlite - upgrade sqlite to SQLite 3.42.0"
-	@echo "runserver - start the development server" 
+	@echo "runserver - start the development server"
 
-$(VENV_BIN)/activate: 
+$(VENV_BIN)/activate:
 	test -d $(VENV) || $(PY3) -m venv $(VENV)
 
 $(VENV): $(VENV_BIN)/activate
@@ -54,7 +54,7 @@ install: @setup
 	$(PY) manage.py createsuperuser
 
 
-clean: 
+clean:
 	rm -rf $(VENV)
 
 upgrade_sqlite:
@@ -69,7 +69,7 @@ upgrade_sqlite:
 	cd /usr/src/Python-$(PY_VERSION)
 	LD_RUN_PATH=/usr/local/lib ./configure
 	LD_RUN_PATH=/usr/local/lib make
-	LD_RUN_PATH=/usr/local/lib sudo make altinstall	
+	LD_RUN_PATH=/usr/local/lib sudo make altinstall
 
 runserver:
 	. $(VENV_BIN)/activate
