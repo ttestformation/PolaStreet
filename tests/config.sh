@@ -1,8 +1,3 @@
-# Configuration
-
-Configuration is made through the config.sh file.
-
-```bash
 #! /bin/bash
 
 # Host information
@@ -17,8 +12,3 @@ TESTS_LIST+=( "unit_000" )
 TESTS_LIST+=( "unit_001" )
 TESTS_LIST+=( "unit_002" )
 TESTS_LIST+=( "unit_003" )
-```
-
-# Test library
-
-Scripts must be stored in the folder specified in the LIBRARY_PATH variable. They must follow the \<unit_test_id\>.sh naming rule.
