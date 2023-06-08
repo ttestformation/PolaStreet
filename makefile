@@ -32,6 +32,7 @@ help:
 	@echo "install   - prepare the environment"
 	@echo "clean     - remove the virtual environment"
 	@echo "upgrade_sqlite - upgrade sqlite to SQLite 3.42.0"
+	@echo "runserver - start the development server" 
 
 $(VENV_BIN)/activate: 
 	test -d $(VENV) || $(PY3) -m venv $(VENV)
@@ -51,7 +52,7 @@ install: @setup
 	export LD_LIBRARY_PATH=/usr/local/lib
 	$(PY) manage.py migrate
 	$(PY) manage.py createsuperuser
-	$(PY) manage.py runserver
+
 
 clean: 
 	rm -rf $(VENV)
@@ -69,3 +70,9 @@ upgrade_sqlite:
 	LD_RUN_PATH=/usr/local/lib ./configure
 	LD_RUN_PATH=/usr/local/lib make
 	LD_RUN_PATH=/usr/local/lib sudo make altinstall	
+
+runserver:
+	. $(VENV_BIN)/activate
+	cd backend
+	export LD_LIBRARY_PATH=/usr/local/lib
+	$(PY) manage.py runserver
