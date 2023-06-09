@@ -1,0 +1,16 @@
+{
+  "name": "mws-codeur-com-assistant",
+  "version": "0.0.0",
+  "scripts": {
+    "e2e:domains": "codeceptjs run --steps ./domains/map/didShow.js"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.33.0",
+    "codeceptjs": "^3.3.4",
+    "dateformat": "^5.0.3",
+    "fast-csv": "^4.3.6",
+    "lodash": "^4.17.21",
+    "moment-business-days": "^1.2.0",
+    "playwright": "^1.35.0"
+  }
+}
