@@ -1,11 +1,27 @@
 {% extends '_base.html' %}
 {% load static %}
 
-{% block title %}Home page{% endblock title %}
+{% block title %}Map page{% endblock title %}
 
 {% block content %}
-<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-  <img src="{% static 'images/logo.png' %}" class="img-fluid" alt="DjangoX logo"/>
-  <p class="lead">PolaStreet</p>
-</div>
+
+<style>
+  #map { height: 180px; }
+</style>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+crossorigin=""/>
+
+Map
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+
+<script>
+  var map = L.map('map').setView([51.505, -0.09], 13);
+</script>
+
 {% endblock content %}
