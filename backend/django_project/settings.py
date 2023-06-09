@@ -30,7 +30,7 @@ INSTALLED_APPS = [
     "debug_toolbar",
     # Local
     "accounts",
-    "pages",
+    "pages_ui",
 ]
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#middleware
@@ -52,11 +52,11 @@ ROOT_URLCONF = "django_project.urls"
 # https://docs.djangoproject.com/en/dev/ref/settings/#wsgi-application
 WSGI_APPLICATION = "django_project.wsgi.application"
 
-# https://docs.djangoproject.com/en/dev/ref/settings/#templates
+# https://docs.djangoproject.com/en/dev/ref/settings/#templates_ui
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / "templates"],
+        "DIRS": [BASE_DIR / "templates_ui"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
