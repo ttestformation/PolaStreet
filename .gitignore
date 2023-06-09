@@ -1,3 +1,9 @@
 .venv
 .vscode
 venv
+*.pyc
+*.pyc
+*.pyo
+*.swp
+__pycache__/
+.pytest_cache
