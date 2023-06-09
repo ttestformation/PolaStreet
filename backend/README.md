@@ -6,7 +6,8 @@ https://github.com/wsvincent/djangox/assets/766418/a73ea730-a7b4-4e53-bf51-aa68f
 ## Biblio
 
 - https://leafletjs.com/examples/quick-start/
-
+- https://stackoverflow.com/questions/1070398/how-to-set-a-value-of-a-variable-inside-a-template-code
+- https://docs.djangoproject.com/en/4.2/topics/class-based-views/intro/#handling-forms-with-class-based-views
 
 ## 🚀 Features
 
