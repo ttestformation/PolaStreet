@@ -18,6 +18,7 @@ You can click the Preview link to take a look at your changes.
 - https://stackoverflow.com/questions/1070398/how-to-set-a-value-of-a-variable-inside-a-template-code
 - https://docs.djangoproject.com/en/4.2/topics/class-based-views/intro/#handling-forms-with-class-based-views
 - https://www.papaparse.com/
+- https://realpython.com/pytest-python-testing/
 
 ## Install
 ```bash
@@ -28,6 +29,9 @@ pip3 install -r requirements.txt
 # Database etc...
 python manage.py migrate
 python manage.py createsuperuser
+
+# tests unitaires
+pip3 install pytest
 
 # tests e2e
 cd tests/e2e 
