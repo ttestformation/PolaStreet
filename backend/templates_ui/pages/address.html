@@ -1,0 +1,26 @@
+{% extends '_base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Map page{% endblock title %}
+
+{% block content %}
+
+<style>
+  
+</style>
+
+<form method="POST" action="" class="password_set">
+  {% csrf_token %}
+  {{ form | crispy }}
+  <div class="form-actions">
+    <button class="btn btn-primary" type="submit" name="action" value="Set Password">Change
+    Password</button>
+  </div>
+</form>
+
+
+TOTO : Saisir une adresse, l'envoyer en base de données,
+puis afficher sur la map l'historique de toutes les adresses saisies
+
+{% endblock content %}

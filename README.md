@@ -35,8 +35,8 @@ source .venv/bin/activate
 
 ```bash
 # Gestion de la map
-code backend/templates/pages/home.html
+code backend/templates_ui/pages/home.html
 
 # Gestion du formulaire de saisie d'adresse
-code backend/templates/pages/address.html
+code backend/templates_ui/pages/address.html
 ```
