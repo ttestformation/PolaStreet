@@ -5,7 +5,23 @@
 
 {% block content %}
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-  <img src="{% static 'images/logo.png' %}" class="img-fluid" alt="DjangoX logo"/>
   <p class="lead">PolaStreet</p>
 </div>
+
+<label for="lattitude"> Lattitude </label>
+<input type="number" id="lattitude">
+<label for="longitude"> Longitude </label>
+<input type="number" id="longitude">
+
+<button onclick="search()" id="chercher">Chercher</button>
+<br>
+
+<div>
+	<h4> Résultat : </p>
+	<p id="resultat"></p>
+</div>
+
+<!-- <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=2.2729682922363286%2C48.81760263727072%2C2.5596427917480473%2C48.910767192107755&amp;layer=mapnik&amp;marker=48.864206594101105%2C2.4163055419921875" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/?mlat=48.8642&amp;mlon=2.4163#map=13/48.8642/2.4163">Afficher une carte plus grande</a></small> -->
+ <div id="map" style="height: 350px; width: 425px;"></div>
+
 {% endblock content %}
