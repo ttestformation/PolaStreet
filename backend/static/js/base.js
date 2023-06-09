@@ -1,3 +1,6 @@
+var map = L.map('map')
+
+
 function search(lat, lon) {
 	let lattitude = isInputNumber(document.getElementById('lattitude').value)
 	let longitude = isInputNumber(document.getElementById('longitude').value)
@@ -11,19 +14,11 @@ function search(lat, lon) {
 			if(request.status === 200) {
 				let result = JSON.parse(request.response)
 				showResult(result);
+				updateMap(lattitude, longitude);
 			} else {
 				showResult('Une erreur est survenue lors de la requête');
 			}
 		}
-		
-		// updating map
-		var map = L.map('map').setView([lattitude, longitude], 13);
-		var marker = L.marker([lattitude, longitude]).addTo(map);
-		L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-			maxZoom: 19,
-			attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-		}).addTo(map);
-
 	} 
 	else {
 		showResult('Valeur impossible à parser');
@@ -40,4 +35,16 @@ function isInputNumber(inputToParse) {
 	if(value != NaN) { 
 		return value; 
 	} return false;
+}
+
+function updateMap(lattitude, longitude) {
+	// updating map
+		map.remove();
+		map = L.map('map').setView([lattitude, longitude], 13);
+		var marker = L.marker([lattitude, longitude]).addTo(map);
+		L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+			maxZoom: 19,
+			attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+		}).addTo(map);
+
 }
