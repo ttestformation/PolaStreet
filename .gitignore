@@ -1,6 +1,6 @@
+venv
 .venv
 .vscode
-venv
 *.pyc
 *.pyc
 *.pyo

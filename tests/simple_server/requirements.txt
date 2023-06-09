@@ -1,0 +1,4 @@
+hug
+geopy
+urllib3==1.26.6
+pytest
